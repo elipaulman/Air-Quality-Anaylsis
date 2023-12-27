@@ -5,10 +5,10 @@ import matplotlib.pyplot as plt
 file_path = "data/global air pollution dataset.csv"
 df = pd.read_csv(file_path)
 
-# Ensure that the "City" column contains only string values
+# Only string values for cities
 df['City'] = df['City'].astype(str)
 
-# Randomly sample a subset of the data (e.g., 100 rows)
+# Randomly sample a subset of the data
 sample_df = df.sample(n=100)
 
 # Create a scatter plot of AQI Value vs. PM2.5 AQI Value
