@@ -13,7 +13,8 @@ X = df[['CO AQI Value', 'Ozone AQI Value', 'NO2 AQI Value', 'PM2.5 AQI Value']]
 y = df['AQI Value']
 
 # Split the dataset into training and test sets
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42)
 
 # Create and train a linear regression model
 model = LinearRegression()
@@ -22,6 +23,19 @@ model.fit(X_train, y_train)
 # Make predictions on the test set
 y_pred = model.predict(X_test)
 
+
+def plot_residuals(y_test, y_pred):
+    residuals = y_test - y_pred
+    plt.figure(figsize=(10, 6))
+    plt.scatter(y_test, residuals)
+    plt.title('Residuals vs. Actual Values')
+    plt.xlabel('Actual Values')
+    plt.ylabel('Residuals')
+    plt.show()
+
+
+# Plot residuals
+plot_residuals(y_test, y_pred)
 # Calculate Root Mean Squared Error (RMSE)
 rmse = mean_squared_error(y_test, y_pred, squared=False)
 print(f"Root Mean Squared Error (RMSE): {rmse:.2f}")
