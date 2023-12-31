@@ -24,6 +24,8 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 
 # Plot the residuals vs the actual values
+
+
 def plot_residuals(y_test, y_pred):
     residuals = y_test - y_pred
     plt.figure(figsize=(10, 6))
@@ -34,8 +36,6 @@ def plot_residuals(y_test, y_pred):
     plt.show()
 
 
-# Plot residuals
-plot_residuals(y_test, y_pred)
 # Calculate Root Mean Squared Error (RMSE)
 rmse = mean_squared_error(y_test, y_pred, squared=False)
 print(f"Root Mean Squared Error (RMSE): {rmse:.2f}")
@@ -56,6 +56,9 @@ plt.xlabel("Prediction Errors")
 plt.ylabel("Frequency")
 plt.title("Histogram of Prediction Errors")
 plt.grid(True)
+
+# Plot residuals
+plot_residuals(y_test, y_pred)
 
 # Display resulting plots
 plt.show()
