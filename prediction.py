@@ -23,7 +23,7 @@ model.fit(X_train, y_train)
 # Make predictions on the test set
 y_pred = model.predict(X_test)
 
-
+# Plot the residuals vs the actual values
 def plot_residuals(y_test, y_pred):
     residuals = y_test - y_pred
     plt.figure(figsize=(10, 6))
